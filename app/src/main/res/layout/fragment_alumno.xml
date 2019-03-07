@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAlumno"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/main_margin"
+        android:layout_marginTop="@dimen/main_margin"
+        android:layout_marginEnd="@dimen/main_margin">
+
+        <Spinner
+            android:id="@+id/alumno_spHorarioTutor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:entries="@array/horarios"
+            app:layout_constraintEnd_toStartOf="@+id/alumno_fab"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_lblHorarioTutor" />
+
+        <TextView
+            android:id="@+id/alumno_lblHorarioTutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:labelFor="@id/alumno_spHorarioTutor"
+            android:text="@string/main_spHorarioTutor_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_txtPhonenumberTutor" />
+
+        <ImageView
+            android:id="@+id/alumno_imgPhonenumberTutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/main_imgPhonenumber_desc"
+            android:tint="@color/color_state_selector"
+            app:layout_constraintBottom_toBottomOf="@+id/alumno_txtPhonenumberTutor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/alumno_txtPhonenumberTutor"
+            app:srcCompat="@drawable/ic_call_24dp" />
+
+        <EditText
+            android:id="@+id/alumno_txtPhonenumberTutor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:autofillHints="@string/main_txtPhonenumberTutor_autofillHints"
+            android:ems="10"
+            android:hint="@string/main_txtPhonenumberTutor_hint"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:selectAllOnFocus="true"
+            app:layout_constraintEnd_toStartOf="@+id/alumno_imgPhonenumberTutor"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintStart_toEndOf="@+id/alumno_imgEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_lblPhoneTutor" />
+
+        <TextView
+            android:id="@+id/alumno_lblPhoneTutor"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:labelFor="@id/alumno_txtPhonenumberTutor"
+            android:text="@string/main_lblPhoneTutor_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_txtNameTutor" />
+
+        <EditText
+            android:id="@+id/alumno_txtNameTutor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:autofillHints="@string/main_txtNameTutor_autofillHints"
+            android:ems="10"
+            android:hint="@string/main_txtNameTutor_hint"
+            android:inputType="textAutoComplete|textPersonName"
+            android:selectAllOnFocus="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_lblNameTutor" />
+
+        <TextView
+            android:id="@+id/alumno_lblNameTutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/alumno_txtNameTutor"
+            android:text="@string/main_lblNameTutor_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <Spinner
+            android:id="@+id/spEmpresa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/spCurso"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_lblEmpresa" />
+
+        <TextView
+            android:id="@+id/alumno_lblEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:labelFor="@+id/spEmpresa"
+            android:text="@string/main_lblEmpresa_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/alumno_lblCurso"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_txtEmail" />
+
+        <TextView
+            android:id="@+id/alumno_lblCurso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:labelFor="@+id/spCurso"
+            android:text="@string/main_lblCurso_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_txtEmail" />
+
+        <TextView
+            android:id="@+id/alumno_lblName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:labelFor="@id/alumno_txtName"
+            android:text="@string/main_lblName_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/alumno_lblEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginTop="@dimen/main_margin"
+            android:labelFor="@+id/alumno_txtEmail"
+            android:text="@string/main_lblEmail_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_txtPhonenumber" />
+
+        <EditText
+            android:id="@+id/alumno_txtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:autofillHints="@string/main_txtName_autofillHints"
+            android:ems="20"
+            android:hint="@string/main_txtName_hint"
+            android:imeOptions="actionNext"
+            android:includeFontPadding="true"
+            android:inputType="textAutoComplete|textPersonName"
+            android:selectAllOnFocus="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_lblName">
+            <requestFocus/>
+        </EditText>
+
+        <EditText
+            android:id="@+id/alumno_txtEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:autofillHints="@string/main_txtEmail_autofillHints"
+            android:ems="10"
+            android:hint="@string/main_txtEmail_hint"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true"
+            android:tint="@color/color_state_selector"
+            app:layout_constraintEnd_toStartOf="@+id/alumno_imgEmail"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_lblEmail" />
+
+        <ImageView
+            android:id="@+id/alumno_imgEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:layout_marginBottom="@dimen/main_margin"
+            android:contentDescription="@string/main_imgEmail_desc"
+            android:tint="@color/color_state_selector"
+            app:layout_constraintBottom_toBottomOf="@+id/alumno_txtEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_email_24dp" />
+
+        <TextView
+            android:id="@+id/alumno_lblPhonenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_margin"
+            android:labelFor="@+id/alumno_txtPhonenumber"
+            android:text="@string/main_lblPhonenumber_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="@+id/alumno_txtPhonenumber"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_txtName" />
+
+        <ImageView
+            android:id="@+id/alumno_imgPhonenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:layout_marginBottom="@dimen/main_margin"
+            android:contentDescription="@string/main_imgPhonenumber_desc"
+            android:tint="@color/color_state_selector"
+            app:layout_constraintBottom_toBottomOf="@+id/alumno_txtPhonenumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/alumno_txtPhonenumber"
+            app:srcCompat="@drawable/ic_call_24dp" />
+
+        <EditText
+            android:id="@+id/alumno_txtPhonenumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:autofillHints="@string/main_txtPhonenumber_autofillHints"
+            android:ems="10"
+            android:hint="@string/main_txtPhonenumber_hint"
+            android:inputType="phone"
+            android:selectAllOnFocus="true"
+            app:layout_constraintEnd_toStartOf="@+id/alumno_imgPhonenumber"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintStart_toEndOf="@+id/alumno_imgEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_lblPhonenumber" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/alumno_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_save_black_24dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Spinner
+            android:id="@+id/spCurso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:entries="@array/cursos"
+            app:layout_constraintEnd_toStartOf="@+id/spEmpresa"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alumno_lblCurso" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="352dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="?android:attr/listDivider"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spEmpresa" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

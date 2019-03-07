@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clEmpresa"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp">
+
+        <TextView
+            android:id="@+id/empresa_lblContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:labelFor="@+id/empresa_txtContact"
+            android:text="@string/main_lblContact_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_txtCIF" />
+
+        <EditText
+            android:id="@+id/empresa_txtContact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:autofillHints="@string/empresa_txtContact_autofillHints"
+            android:ems="10"
+            android:hint="@string/empresa_txtContact_hint"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:selectAllOnFocus="true"
+            android:tint="@color/color_state_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_lblContact" />
+
+        <TextView
+            android:id="@+id/empresa_lblName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:labelFor="@id/empresa_txtName"
+            android:text="@string/main_lblName_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/empresa_lblEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:labelFor="@+id/empresa_txtEmail"
+            android:text="@string/main_lblEmail_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_txtAddress" />
+
+        <TextView
+            android:id="@+id/empresa_lblCIF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:labelFor="@+id/empresa_txtCIF"
+            android:text="@string/main_lblCIF_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_txtEmail" />
+
+        <EditText
+            android:id="@+id/empresa_txtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:autofillHints="@string/empresa_txtName_autofillHints"
+            android:ems="10"
+            android:hint="@string/empresa_txtName_hint"
+            android:inputType="textAutoComplete|textPersonName"
+            android:selectAllOnFocus="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_lblName" />
+
+        <EditText
+            android:id="@+id/empresa_txtEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:autofillHints="@string/empresa_txtEmail_autofillHints"
+            android:ems="10"
+            android:hint="@string/empresa_txtEmail_hint"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true"
+            android:tint="@color/color_state_selector"
+            app:layout_constraintEnd_toStartOf="@+id/empresa_imgEmail"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_lblEmail" />
+
+        <EditText
+            android:id="@+id/empresa_txtCIF"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:autofillHints="@string/empresa_txtCIF_autofillHints"
+            android:ems="10"
+            android:hint="@string/empresa_txtCIF_hint"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:selectAllOnFocus="true"
+            android:tint="@color/color_state_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_lblCIF" />
+
+        <ImageView
+            android:id="@+id/empresa_imgEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:layout_marginBottom="@dimen/main_margin"
+            android:contentDescription="@string/main_imgEmail_desc"
+            android:tint="@color/color_state_selector"
+            app:layout_constraintBottom_toBottomOf="@+id/empresa_txtEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_email_24dp" />
+
+        <TextView
+            android:id="@+id/empresa_lblPhonenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:labelFor="@+id/empresa_txtPhonenumber"
+            android:text="@string/main_lblPhonenumber_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="@+id/empresa_txtPhonenumber"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_txtName" />
+
+        <ImageView
+            android:id="@+id/empresa_imgPhonenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:layout_marginBottom="@dimen/main_margin"
+            android:contentDescription="@string/main_imgPhonenumber_desc"
+            android:tint="@color/color_state_selector"
+            app:layout_constraintBottom_toBottomOf="@+id/empresa_txtPhonenumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/empresa_txtPhonenumber"
+            app:srcCompat="@drawable/ic_call_24dp" />
+
+        <EditText
+            android:id="@+id/empresa_txtPhonenumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:autofillHints="@string/empresa_txtPhonenumber_autofillHints"
+            android:ems="10"
+            android:hint="@string/empresa_txtPhonenumber_hint"
+            android:inputType="phone"
+            android:selectAllOnFocus="true"
+            app:layout_constraintEnd_toStartOf="@+id/empresa_imgPhonenumber"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintStart_toEndOf="@+id/empresa_imgEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_lblPhonenumber" />
+
+        <TextView
+            android:id="@+id/empresa_lblAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:labelFor="@+id/empresa_txtAddress"
+            android:text="@string/empresa_lblAddress_text"
+            android:textColor="@color/color_state_selector"
+            app:layout_constraintStart_toStartOf="@+id/empresa_txtAddress"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_txtPhonenumber" />
+
+        <ImageView
+            android:id="@+id/empresa_imgAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:layout_marginBottom="@dimen/main_margin"
+            android:contentDescription="@string/main_imgAddress_desc"
+            android:tint="@color/color_state_selector"
+            app:layout_constraintBottom_toBottomOf="@+id/empresa_txtAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/empresa_txtAddress"
+            app:srcCompat="@drawable/ic_map" />
+
+        <EditText
+            android:id="@+id/empresa_txtAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin"
+            android:layout_marginEnd="@dimen/main_margin"
+            android:autofillHints="@string/empresa_txtAddress_autofillHints"
+            android:ems="10"
+            android:hint="@string/empresa_txtAddress_hint"
+            android:inputType="textPostalAddress"
+            android:selectAllOnFocus="true"
+            app:layout_constraintEnd_toStartOf="@+id/empresa_imgAddress"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintStart_toEndOf="@+id/empresa_imgEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/empresa_lblAddress" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/empresa_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_save_black_24dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

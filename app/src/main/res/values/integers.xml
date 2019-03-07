@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="alumnos_lstAlumnos_columns">1</integer>
+    <integer name="empresas_lstEmpresas_columns">1</integer>
+    <integer name="visitas_lstVisitas_columns">1</integer>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_navigation"
+    app:startDestination="@id/alumnosFragment">
+
+    <fragment
+        android:id="@+id/alumnosFragment"
+        android:name="com.example.er_ja.jave_pr10_fct.ui.alumnos.AlumnosFragment"
+        android:label="Alumnos" >
+        <action
+            android:id="@+id/action_alumnosFragment_to_alumnoFragment"
+            app:destination="@id/alumnoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/alumnoFragment"
+        android:name="com.example.er_ja.jave_pr10_fct.ui.alumno.AlumnoFragment"
+        android:label="Detalle alumno" ></fragment>
+    <fragment
+        android:id="@+id/empresasFragment"
+        android:name="com.example.er_ja.jave_pr10_fct.ui.empresas.EmpresasFragment"
+        android:label="Empresas" >
+        <action
+            android:id="@+id/action_empresasFragment_to_empresaFragment"
+            app:destination="@id/empresaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/empresaFragment"
+        android:name="com.example.er_ja.jave_pr10_fct.ui.empresa.EmpresaFragment"
+        android:label="Detalle empresa" />
+    <fragment
+        android:id="@+id/visitaFragment"
+        android:name="com.example.er_ja.jave_pr10_fct.ui.visita.VisitaFragment"
+        android:label="VisitaFragment" />
+    <fragment
+        android:id="@+id/visitasFragment"
+        android:name="com.example.er_ja.jave_pr10_fct.ui.visitas.VisitasFragment"
+        android:label="VisitasFragment" >
+        <action
+            android:id="@+id/action_visitasFragment_to_visitaFragment"
+            app:destination="@id/visitaFragment" />
+    </fragment>
+</navigation>
