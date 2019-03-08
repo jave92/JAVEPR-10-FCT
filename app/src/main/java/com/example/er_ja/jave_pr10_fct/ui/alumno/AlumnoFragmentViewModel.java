@@ -35,6 +35,7 @@ public class AlumnoFragmentViewModel extends ViewModel {
         this.alumno = alumno;
     }
 
+
     public LiveData<List<String>> getNombreEmpresas(){
         return nombreEmpresas;
     }

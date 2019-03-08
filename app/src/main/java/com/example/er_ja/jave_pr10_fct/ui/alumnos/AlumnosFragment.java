@@ -16,6 +16,7 @@ import com.example.er_ja.jave_pr10_fct.databinding.FragmentAlumnosBinding;
 import com.example.er_ja.jave_pr10_fct.ui.EditInterface;
 import com.example.er_ja.jave_pr10_fct.ui.alumno.AlumnoFragment;
 import com.example.er_ja.jave_pr10_fct.ui.main.MainActivityViewModel;
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -96,6 +97,9 @@ public class AlumnosFragment extends Fragment {
                     // Cuando se detecta un gesto swipe to dismiss.
                     @Override
                     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                        vm.setAlumnoToDelete(listAdapter.getItem(viewHolder.getAdapterPosition()));
+                        Snackbar.make(b.alumnosFab, "Alumno eliminado", Snackbar.LENGTH_LONG)
+                                .setAction(getString(R.string.deshacer), view -> vm.insert(vm.getAlumnoToDelete())).show();
                         vm.delete(listAdapter.getItem(viewHolder.getAdapterPosition()));
                     }
                 });

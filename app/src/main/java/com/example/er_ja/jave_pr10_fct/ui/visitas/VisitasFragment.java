@@ -13,6 +13,7 @@ import com.example.er_ja.jave_pr10_fct.databinding.FragmentVisitasBinding;
 import com.example.er_ja.jave_pr10_fct.ui.alumnos.AlumnosFragmentViewModel;
 import com.example.er_ja.jave_pr10_fct.ui.alumnos.AlumnosFragmentViewModelFactory;
 import com.example.er_ja.jave_pr10_fct.ui.main.MainActivityViewModel;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -125,6 +126,9 @@ public class VisitasFragment extends Fragment {
                     // Cuando se detecta un gesto swipe to dismiss.
                     @Override
                     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                        vm.setVisitaToDelete(listAdapter.getItem(viewHolder.getAdapterPosition()));
+                        Snackbar.make(b.lblEmptyView, "Visita eliminada", Snackbar.LENGTH_LONG)
+                                .setAction(getString(R.string.deshacer), view -> vm.insert(vm.getVisitaToDelete())).show();
                         vm.delete(listAdapter.getItem(viewHolder.getAdapterPosition()));
                     }
                 });

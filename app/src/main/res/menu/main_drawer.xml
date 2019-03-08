@@ -16,4 +16,13 @@
             android:id="@+id/proximasFragment"
             android:title="@string/txt_navProximas" />
     </group>
+
+    <item
+        android:title="Información">
+        <menu>
+            <item
+                android:id="@+id/infoFragment"
+                android:title="@string/info_desarrollador_txt" />
+        </menu>
+    </item>
 </menu>

@@ -11,12 +11,16 @@ import androidx.lifecycle.ViewModel;
 public class AlumnosFragmentViewModel extends ViewModel {
     private final Repository repository;
     private LiveData<List<Alumno>> alumnos;
+    private Alumno alumnoToDelete;
 
     public AlumnosFragmentViewModel(Repository repository) {
         this.repository = repository;
         alumnos = repository.getAlumnos();
     }
 
+    public void insert(Alumno alumno){
+        repository.insertAlumno(alumno);
+    }
     public void delete(Alumno alumno){
         repository.deleteAlumno(alumno);
     }
@@ -25,5 +29,14 @@ public class AlumnosFragmentViewModel extends ViewModel {
         return alumnos;
     }
     public String getNombreEmpresa(Long id){ return repository.getNombreEmpresa(id);}
+
+
+    public Alumno getAlumnoToDelete() {
+        return alumnoToDelete;
+    }
+
+    public void setAlumnoToDelete(Alumno alumnoToDelete) {
+        this.alumnoToDelete = alumnoToDelete;
+    }
 
 }

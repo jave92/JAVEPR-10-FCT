@@ -70,4 +70,6 @@
     <string name="lstPref_summary">Próximas visitas</string>
     <string name="lstPref_default">proximas</string>
     <string name="lstKey">listpref</string>
+    <string name="deshacer">Deshacer</string>
+    <string name="info_desarrollador_txt">Desarrollador</string>
 </resources>

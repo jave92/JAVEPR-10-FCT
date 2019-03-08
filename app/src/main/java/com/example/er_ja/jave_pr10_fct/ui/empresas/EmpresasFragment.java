@@ -13,6 +13,7 @@ import com.example.er_ja.jave_pr10_fct.databinding.FragmentEmpresasBinding;
 import com.example.er_ja.jave_pr10_fct.ui.EditInterface;
 import com.example.er_ja.jave_pr10_fct.ui.main.MainActivityViewModel;
 import com.example.er_ja.jave_pr10_fct.utils.KeyboardUtils;
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -92,6 +93,9 @@ public class EmpresasFragment extends Fragment {
                     // Cuando se detecta un gesto swipe to dismiss.
                     @Override
                     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                        vm.setEmpresaToDelete(listAdapter.getItem(viewHolder.getAdapterPosition()));
+                        Snackbar.make(b.empresasFab, "Empresa eliminada", Snackbar.LENGTH_LONG)
+                                .setAction(getString(R.string.deshacer), view -> vm.insert(vm.getEmpresaToDelete())).show();
                         vm.delete(listAdapter.getItem(viewHolder.getAdapterPosition()));
                     }
                 });
