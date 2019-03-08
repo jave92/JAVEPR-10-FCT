@@ -9,4 +9,17 @@
         <item >Tarde</item>
         <item >Noche</item>
     </string-array>
+
+    <string-array name="lstPref_entries">
+        <item>"Próximas visitas"</item>
+        <item>"Historial"</item>
+        <item>"Alumnos"</item>
+        <item>"Empresas"</item>
+    </string-array>
+    <string-array name="lstPref_entryValues">
+        <item >"proximas"</item>
+        <item >"visitas"</item>
+        <item >"alumnos"</item>
+        <item >"empresas"</item>
+    </string-array>
 </resources>

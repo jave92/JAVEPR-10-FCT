@@ -66,4 +66,8 @@
     <string name="main_no_visits_yet">Ninguna visita realizada</string>
     <string name="preferencias_title">Settings</string>
     <string name="main_no_future_visits_yet">No hay visitas programadas</string>
+    <string name="lstPref_title">Pantalla principal</string>
+    <string name="lstPref_summary">Próximas visitas</string>
+    <string name="lstPref_default">proximas</string>
+    <string name="lstKey">listpref</string>
 </resources>

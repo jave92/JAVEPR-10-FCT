@@ -1,6 +1,8 @@
 package com.example.er_ja.jave_pr10_fct.ui.proximas;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import androidx.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +39,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ProximasFragment extends Fragment {
+public class ProximasFragment extends Fragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ProximasFragmentViewModel vm;
     private VisitasFragmentViewModel visitasFragmentViewModel;
     private AlumnosFragmentViewModel alumnosFragmentViewModel;
@@ -45,6 +47,7 @@ public class ProximasFragment extends Fragment {
     private FragmentProximasBinding b;
 
     private ProximasFragmentAdapter listAdapter;
+    private SharedPreferences settings;
 
     public ProximasFragment() {
     }
@@ -72,6 +75,7 @@ public class ProximasFragment extends Fragment {
         observeAlumnos();
         observeVisitas();
         setupViews();
+        settings = PreferenceManager.getDefaultSharedPreferences(getContext());
     }
 
     private void observeAlumnos() {
@@ -117,7 +121,7 @@ public class ProximasFragment extends Fragment {
                     try {
                         fecha = df.parse(visita.getDia());
                         calendar.setTime(fecha);
-                        calendar.add(Calendar.DAY_OF_YEAR, 15);
+                        calendar.add(Calendar.DAY_OF_YEAR, settings.getInt("seekBar", 15));
                         dateNextVisit = df.format(calendar.getTime());
                         Visita proxima = new Visita(dateNextVisit,null,null,null, visita.getIdAlumno());
                         proxima.setNombreAlumno(vm.getNombreAlumno(visita.getIdAlumno()));
@@ -163,5 +167,22 @@ public class ProximasFragment extends Fragment {
 
     private void editUser(Visita visita) {
         mainActivityViewModel.setVisitaInsert(visita);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        settings.registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onPause() {
+        settings.unregisterOnSharedPreferenceChangeListener(this);
+        super.onPause();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
     }
 }

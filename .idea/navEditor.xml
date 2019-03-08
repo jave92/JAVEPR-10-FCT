@@ -74,6 +74,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="preferencias">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="107" />
+                            <option name="y" value="-455" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="proximasFragment">
                     <value>
                       <LayoutPositions>

@@ -47,4 +47,8 @@
             android:id="@+id/action_proximasFragment_to_visitaFragment"
             app:destination="@id/visitaFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/preferencias"
+        android:name="com.example.er_ja.jave_pr10_fct.base.Preferencias"
+        android:label="Preferencias" />
 </navigation>

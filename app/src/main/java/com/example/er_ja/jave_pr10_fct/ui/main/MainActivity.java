@@ -8,11 +8,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.NavGraph;
+import androidx.navigation.NavInflater;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.preference.PreferenceManager;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,12 +27,13 @@ import android.widget.Toast;
 import com.example.er_ja.jave_pr10_fct.R;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
 
     private NavController navController;
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     AppBarConfiguration appBarConfiguration;
+    private SharedPreferences settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,27 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void setupViews() {
+        settings = PreferenceManager.getDefaultSharedPreferences(this);
         navController = Navigation.findNavController(this, R.id.navHostFragment);
+        NavInflater navInflater = navController.getNavInflater();
+        NavGraph navGraph = navInflater.inflate(R.navigation.main_navigation);
+        int startDestionationResId = R.id.proximasFragment;
+        switch (settings.getString(getResources().getString(R.string.lstKey), "proximas")){
+            case "proximas":
+                startDestionationResId = R.id.proximasFragment;
+                break;
+            case "visitas":
+                startDestionationResId = R.id.visitasFragment;
+                break;
+            case "alumnos":
+                startDestionationResId = R.id.alumnosFragment;
+                break;
+            case "empresas":
+                startDestionationResId = R.id.empresasFragment;
+                break;
+        }
+        navGraph.setStartDestination(startDestionationResId);
+        navController.setGraph(navGraph);
         toolbar = ActivityCompat.requireViewById(this, R.id.toolbar);
         drawerLayout = ActivityCompat.requireViewById(this, R.id.drawerLayout);
         setSupportActionBar(toolbar);
@@ -58,9 +83,9 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else{
+        } else {
             super.onBackPressed();
         }
         getSupportActionBar().setTitle(navController.getCurrentDestination().getLabel());
@@ -81,8 +106,7 @@ public class MainActivity extends AppCompatActivity{
         // Dependiendo del item pulsado se realiza la acción deseada.
         switch (item.getItemId()) {
             case R.id.mnuPref:
-                Toast.makeText(this, "PREF",
-                        Toast.LENGTH_SHORT).show();
+                navigateToPreferences();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -90,10 +114,29 @@ public class MainActivity extends AppCompatActivity{
         return true;
     }
 
+    private void navigateToPreferences() {
+        navController.navigate(R.id.preferencias);
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        settings.registerOnSharedPreferenceChangeListener(this);
+    }
+    @Override
+    protected void onPause() {
+        settings.unregisterOnSharedPreferenceChangeListener(this);
+        super.onPause();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
     }
 }
