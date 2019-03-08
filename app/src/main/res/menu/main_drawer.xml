@@ -12,5 +12,8 @@
         <item
             android:id="@+id/visitasFragment"
             android:title="@string/txt_navVisitas" />
+        <item
+            android:id="@+id/proximasFragment"
+            android:title="@string/txt_navProximas" />
     </group>
 </menu>

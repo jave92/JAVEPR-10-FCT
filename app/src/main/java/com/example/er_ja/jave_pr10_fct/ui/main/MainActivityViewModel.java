@@ -9,7 +9,8 @@ import androidx.lifecycle.ViewModel;
 public class MainActivityViewModel extends ViewModel {
     private Alumno alumno = null;
     private Empresa empresa = null;
-    private Visita visita = null;
+    private Visita visitaUpdate = null;
+    private Visita visitaInsert = null;
 
     public Alumno getAlumno() {
         return alumno;
@@ -27,11 +28,19 @@ public class MainActivityViewModel extends ViewModel {
         this.empresa = empresa;
     }
 
-    public Visita getVisita() {
-        return visita;
+    public Visita getVisitaUpdate() {
+        return visitaUpdate;
     }
 
-    public void setVisita(Visita visita) {
-        this.visita = visita;
+    public void setVisitaUpdate(Visita visita) {
+        this.visitaUpdate = visita;
+    }
+
+    public Visita getVisitaInsert() {
+        return visitaInsert;
+    }
+
+    public void setVisitaInsert(Visita visitaInsert) {
+        this.visitaInsert = visitaInsert;
     }
 }

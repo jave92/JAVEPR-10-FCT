@@ -43,7 +43,7 @@ public class ProximasFragmentAdapter extends ListAdapter<Visita, ProximasFragmen
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.visita_item, parent, false), editInterface);
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.proxima_item, parent, false), editInterface);
     }
 
     @Override
@@ -63,24 +63,24 @@ public class ProximasFragmentAdapter extends ListAdapter<Visita, ProximasFragmen
 
     static class ViewHolder extends RecyclerView.ViewHolder{
 
-        private final TextView lblDia, lblHoraInicio, lblHoraFin, lblAlumno;
-        private final Button btnEdit;
+        private final TextView lblDia, lblAlumno;
+        private final Button btnVisitar;
 
         public ViewHolder(@NonNull View itemView, EditInterface editInterface) {
             super(itemView);
-            lblDia = ViewCompat.requireViewById(itemView, R.id.visita_item_lblDia);
-            lblHoraInicio = ViewCompat.requireViewById(itemView, R.id.visita_item_lblHoraInicio);
-            lblHoraFin = ViewCompat.requireViewById(itemView, R.id.visita_item_lblHoraFin);
-            lblAlumno = ViewCompat.requireViewById(itemView, R.id.visita_item_lblAlumno);
-            btnEdit = ViewCompat.requireViewById(itemView, R.id.visita_item_btnEdit);
-            btnEdit.setOnClickListener(v -> editInterface.onBtnEditClick(v,ViewHolder.this.getAdapterPosition()));
+            lblDia = ViewCompat.requireViewById(itemView, R.id.proxima_item_lblDia);
+            lblAlumno = ViewCompat.requireViewById(itemView, R.id.proxima_item_lblAlumno);
+            btnVisitar = ViewCompat.requireViewById(itemView, R.id.proxima_item_btnVisitar);
+            btnVisitar.setOnClickListener(v -> editInterface.onBtnEditClick(v,ViewHolder.this.getAdapterPosition()));
         }
 
         void bind(Visita visita){
-            lblDia.setText(visita.getDia());
-            lblHoraInicio.setText(visita.getHoraInicio());
-            lblHoraFin.setText(visita.getHoraFin());
             lblAlumno.setText(visita.getNombreAlumno());
+            if(visita.getDia()==null){
+                lblDia.setText("Hacer visita inicial");
+            }else{
+                lblDia.setText(visita.getDia());
+            }
         }
     }
 }

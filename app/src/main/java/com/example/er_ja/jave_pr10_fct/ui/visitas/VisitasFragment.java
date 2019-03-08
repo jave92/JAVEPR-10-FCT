@@ -41,7 +41,7 @@ public class VisitasFragment extends Fragment {
     public VisitasFragment() {
     }
 
-    public static VisitasFragment newInstance(){
+    public static VisitasFragment newInstance() {
         return new VisitasFragment();
     }
 
@@ -58,15 +58,16 @@ public class VisitasFragment extends Fragment {
         vm = ViewModelProviders.of(VisitasFragment.this, new VisitasFragmentViewModelFactory(new RepositoryImpl(getActivity().getApplication()))).get(VisitasFragmentViewModel.class);
         mainActivityViewModel = ViewModelProviders.of(getActivity()).get(MainActivityViewModel.class);
         alumnosFragmentViewModel = ViewModelProviders.of(getActivity(), new AlumnosFragmentViewModelFactory(new RepositoryImpl(getActivity().getApplication()))).get(AlumnosFragmentViewModel.class);
-        //TODO CUIDAO CON EL SETALUMNO NULL
-        mainActivityViewModel.setVisita(null);
+        //TODO CUIDAO CON EL SETVISITA NULL
+        mainActivityViewModel.setVisitaUpdate(null);
         setupViews();
         observeVisitas();
-        observeAlumnos();
+//        observeAlumnos();
     }
 
     private void observeVisitas() {
         vm.getVisitas().observe(this, visitas -> {
+            b.lblEmptyView.setVisibility(visitas.isEmpty() ? View.VISIBLE : View.INVISIBLE);
             Collections.sort(visitas, new Comparator<Visita>() {
                 @Override
                 public int compare(Visita o1, Visita o2) {
@@ -74,8 +75,8 @@ public class VisitasFragment extends Fragment {
                     Date fecha1, fecha2;
 
                     try {
-                        fecha1 = format.parse(o1.getDia()+o1.getHoraInicio());
-                        fecha2 = format.parse(o2.getDia()+o2.getHoraInicio());
+                        fecha1 = format.parse(o1.getDia() + o1.getHoraInicio());
+                        fecha2 = format.parse(o2.getDia() + o2.getHoraInicio());
                         return fecha2.compareTo(fecha1);
                     } catch (ParseException e) {
                         System.out.println("Error al convertir las fechas");
@@ -84,21 +85,21 @@ public class VisitasFragment extends Fragment {
                 }
             });
 
-            for (Visita visita:visitas) {
+            for (Visita visita : visitas) {
                 visita.setNombreAlumno(vm.getNombreAlumno(visita.getIdAlumno()));
             }
             listAdapter.submitList(visitas);
         });
     }
-    private void observeAlumnos() {
-        alumnosFragmentViewModel.getAlumnos().observe(this, alumnos -> {
-            if(alumnos.size()==0){
-                b.visitasFab.setOnClickListener(v -> Toast.makeText(getContext(),"Debe crear primero algún alumno", Toast.LENGTH_LONG).show());
-            }else{
-                b.visitasFab.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_visitasFragment_to_visitaFragment));
-            }
-        });
-    }
+//    private void observeAlumnos() {
+//        alumnosFragmentViewModel.getAlumnos().observe(this, alumnos -> {
+//            if(alumnos.size()==0){
+//                b.visitasFab.setOnClickListener(v -> Toast.makeText(getContext(),"Debe crear primero algún alumno", Toast.LENGTH_LONG).show());
+//            }else{
+//                b.visitasFab.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_visitasFragment_to_visitaFragment));
+//            }
+//        });
+//    }
 
     private void setupViews() {
         listAdapter = new VisitasFragmentAdapter((v, position) -> {
@@ -132,6 +133,6 @@ public class VisitasFragment extends Fragment {
     }
 
     private void editUser(Visita visita) {
-        mainActivityViewModel.setVisita(visita);
+        mainActivityViewModel.setVisitaUpdate(visita);
     }
 }

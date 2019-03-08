@@ -7,6 +7,7 @@ import java.util.List;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
 
 public class ProximasFragmentViewModel extends ViewModel {
     private final Repository repository;
@@ -19,6 +20,7 @@ public class ProximasFragmentViewModel extends ViewModel {
 
     public void delete(Visita visita){
         repository.deleteVisita(visita);
+
     }
 
     public LiveData<List<Visita>> getVisitas(){

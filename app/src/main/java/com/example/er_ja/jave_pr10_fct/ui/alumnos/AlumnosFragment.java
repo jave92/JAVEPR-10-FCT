@@ -66,6 +66,7 @@ public class AlumnosFragment extends Fragment {
                 alumno.setNombreEmpresa(vm.getNombreEmpresa(alumno.getIdEmpresa()));
             }
             listAdapter.submitList(alumnos);
+            b.lblEmptyView.setVisibility(alumnos.isEmpty() ? View.VISIBLE : View.INVISIBLE);
         });
     }
 
@@ -79,6 +80,7 @@ public class AlumnosFragment extends Fragment {
         b.lstAlumnos.setItemAnimator(new DefaultItemAnimator());
         b.lstAlumnos.setAdapter(listAdapter);
         b.alumnosFab.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_alumnosFragment_to_alumnoFragment));
+        b.lblEmptyView.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_alumnosFragment_to_alumnoFragment));
 
         // Se crea el helper.
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(

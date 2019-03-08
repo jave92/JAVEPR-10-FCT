@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_navigation"
-    app:startDestination="@id/alumnosFragment">
+    app:startDestination="@id/proximasFragment">
 
     <fragment
         android:id="@+id/alumnosFragment"
@@ -34,9 +34,17 @@
     <fragment
         android:id="@+id/visitasFragment"
         android:name="com.example.er_ja.jave_pr10_fct.ui.visitas.VisitasFragment"
-        android:label="VisitasFragment" >
+        android:label="Visitas" >
         <action
             android:id="@+id/action_visitasFragment_to_visitaFragment"
+            app:destination="@id/visitaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/proximasFragment"
+        android:name="com.example.er_ja.jave_pr10_fct.ui.proximas.ProximasFragment"
+        android:label="Próximas visitas" >
+        <action
+            android:id="@+id/action_proximasFragment_to_visitaFragment"
             app:destination="@id/visitaFragment" />
     </fragment>
 </navigation>

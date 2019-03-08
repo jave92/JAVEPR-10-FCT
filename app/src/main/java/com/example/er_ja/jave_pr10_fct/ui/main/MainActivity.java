@@ -15,6 +15,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -22,7 +23,7 @@ import android.widget.Toast;
 import com.example.er_ja.jave_pr10_fct.R;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity{
 
     private NavController navController;
     private DrawerLayout drawerLayout;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = ActivityCompat.requireViewById(this, R.id.drawerLayout);
         setSupportActionBar(toolbar);
         appBarConfiguration =
-                new AppBarConfiguration.Builder(R.id.empresasFragment, R.id.alumnosFragment, R.id.visitasFragment)
+                new AppBarConfiguration.Builder(R.id.empresasFragment, R.id.alumnosFragment, R.id.visitasFragment, R.id.proximasFragment)
                         .setDrawerLayout(drawerLayout)
                         .build();
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);
@@ -67,23 +68,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.alumnosFragment:
-                navController.navigate(R.id.alumnosFragment);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Se infla el menú a partir del XML.
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        super.onCreateOptionsMenu(menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Dependiendo del item pulsado se realiza la acción deseada.
+        switch (item.getItemId()) {
+            case R.id.mnuPref:
+                Toast.makeText(this, "PREF",
+                        Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.empresasFragment:
-                navController.navigate(R.id.empresasFragment);
-                break;
-            case R.id.visitasFragment:
-                navController.navigate(R.id.visitasFragment);
-                break;
-                default:
-                    Toast.makeText(this, "Error de navegacion", Toast.LENGTH_SHORT).show();
-                    break;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        getSupportActionBar().setTitle(navController.getCurrentDestination().getLabel());
-        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 

@@ -25,27 +25,27 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/visita_item" />
 
-        <!--<TextView-->
-        <!--android:id="@+id/lblEmptyView"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:drawableTop="@drawable/ic_person_add_black_24dp"-->
-        <!--android:drawablePadding="@dimen/main_lblEmptyView_drawablePadding"-->
-        <!--android:text="@string/main_no_students_yet"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent" />-->
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/visitas_fab"
+        <TextView
+        android:id="@+id/lblEmptyView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/ic_add"
+        android:drawableTop="@drawable/ic_event_note_black_24dp"
+        android:drawablePadding="@dimen/main_lblEmptyView_drawablePadding"
+        android:text="@string/main_no_visits_yet"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--android:id="@+id/visitas_fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:src="@drawable/ic_add"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -58,4 +58,12 @@
     <string name="visita_lblDia_text">Fecha</string>
     <string name="visita_lblHoraInicio_text">Hora de inicio</string>
     <string name="visita_lblHoraFin_text">Hora de finalización</string>
+    <string name="proxima_btnRealizar_text">Visitar</string>
+    <string name="txt_navProximas">Próximas visitas</string>
+    <string name="main_required_field">Campo requerido</string>
+    <string name="main_no_company_yet">No hay compañías</string>
+    <string name="main_no_students_yet">No hay alumnos</string>
+    <string name="main_no_visits_yet">Ninguna visita realizada</string>
+    <string name="preferencias_title">Settings</string>
+    <string name="main_no_future_visits_yet">No hay visitas programadas</string>
 </resources>

@@ -12,6 +12,7 @@ import com.example.er_ja.jave_pr10_fct.databinding.FragmentEmpresasBinding;
 import com.example.er_ja.jave_pr10_fct.databinding.FragmentEmpresasBinding;
 import com.example.er_ja.jave_pr10_fct.ui.EditInterface;
 import com.example.er_ja.jave_pr10_fct.ui.main.MainActivityViewModel;
+import com.example.er_ja.jave_pr10_fct.utils.KeyboardUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -58,6 +59,7 @@ public class EmpresasFragment extends Fragment {
     private void observeEmpresas() {
         vm.getEmpresas().observe(this, empresas -> {
             listAdapter.submitList(empresas);
+            b.lblEmptyView.setVisibility(empresas.isEmpty() ? View.VISIBLE : View.INVISIBLE);
         });
     }
 
@@ -74,6 +76,7 @@ public class EmpresasFragment extends Fragment {
         b.lstEmpresas.setItemAnimator(new DefaultItemAnimator());
         b.lstEmpresas.setAdapter(listAdapter);
         b.empresasFab.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_empresasFragment_to_empresaFragment));
+        b.lblEmptyView.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_empresasFragment_to_empresaFragment));
 
         // Se crea el helper.
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(

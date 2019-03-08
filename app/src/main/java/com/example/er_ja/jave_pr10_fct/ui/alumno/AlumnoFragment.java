@@ -272,12 +272,6 @@ public class AlumnoFragment extends Fragment {
         int posCurso = cursoAdapter.getPosition(alumno.getCurso());
         b.spCurso.setSelection(posCurso);
 
-//        ArrayAdapter<String> empresaAdapter = (ArrayAdapter<String>) b.spEmpresa.getAdapter();
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+adaptadorEmpresas);
-//        int posEmp = empresaAdapter.getPosition(alumno.getIdEmpresa().toString());
-//        b.spEmpresa.setSelection(posEmp);
-//        b.spEmpresa.setSelection();
-
         b.alumnoTxtNameTutor.setText(alumno.getTutor().getNombre());
         b.alumnoTxtPhonenumberTutor.setText(alumno.getTutor().getTelefono());
 

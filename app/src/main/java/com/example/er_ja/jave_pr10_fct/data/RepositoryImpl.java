@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import com.example.er_ja.jave_pr10_fct.data.local.AlumnoDao;
 import com.example.er_ja.jave_pr10_fct.data.local.Database;
 import com.example.er_ja.jave_pr10_fct.data.local.EmpresaDao;
-import com.example.er_ja.jave_pr10_fct.data.local.ProximasDao;
 import com.example.er_ja.jave_pr10_fct.data.local.VisitaDao;
 import com.example.er_ja.jave_pr10_fct.data.local.entity.Alumno;
 import com.example.er_ja.jave_pr10_fct.data.local.entity.Empresa;
@@ -20,14 +19,12 @@ public class RepositoryImpl implements Repository {
     private final AlumnoDao alumnoDao;
     private final EmpresaDao empresaDao;
     private final VisitaDao visitaDao;
-    private final ProximasDao proximasDao;
 
     public RepositoryImpl(Application application) {
         Database db = Database.getInstance(application);
         alumnoDao = db.alumnoDao();
         empresaDao = db.empresaDao();
         visitaDao = db.visitaDao();
-        proximasDao = db.proximasDao();
     }
 
     @Override
